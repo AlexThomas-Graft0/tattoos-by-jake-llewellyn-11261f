@@ -1,58 +1,61 @@
-import { DeployButton } from "@/components/deploy-button";
-import { EnvVarWarning } from "@/components/env-var-warning";
-import { AuthButton } from "@/components/auth-button";
-import { Hero } from "@/components/hero";
-import { ThemeSwitcher } from "@/components/theme-switcher";
-import { ConnectSupabaseSteps } from "@/components/tutorial/connect-supabase-steps";
-import { SignUpUserSteps } from "@/components/tutorial/sign-up-user-steps";
-import { hasEnvVars } from "@/lib/utils";
-import Link from "next/link";
 import { Suspense } from "react";
+import { Navbar } from "@/components/Navbar";
+import { HeroSection } from "@/components/HeroSection";
+import { PhilosophySection } from "@/components/PhilosophySection";
+import { ArtistShowcase } from "@/components/ArtistShowcase";
+import { PortfolioGallery } from "@/components/PortfolioGallery";
+import { StudioPolicies } from "@/components/StudioPolicies";
+import { BookingEnquiryForm } from "@/components/BookingEnquiryForm";
+import { AftercareGuide } from "@/components/AftercareGuide";
+import { ContactAndFaq } from "@/components/ContactAndFaq";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center">
-      <div className="flex-1 w-full flex flex-col gap-20 items-center">
-        <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-          <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
-            <div className="flex gap-5 items-center font-semibold">
-              <Link href={"/"}>Next.js Supabase Starter</Link>
-              <div className="flex items-center gap-2">
-                <DeployButton />
-              </div>
-            </div>
-            {!hasEnvVars ? (
-              <EnvVarWarning />
-            ) : (
-              <Suspense>
-                <AuthButton />
-              </Suspense>
-            )}
-          </div>
-        </nav>
-        <div className="flex-1 flex flex-col gap-20 max-w-5xl p-5">
-          <Hero />
-          <main className="flex-1 flex flex-col gap-6 px-4">
-            <h2 className="font-medium text-xl mb-4">Next steps</h2>
-            {hasEnvVars ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
-          </main>
-        </div>
-
-        <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
-          <p>
-            Powered by{" "}
-            <a
-              href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-              target="_blank"
-              className="font-bold hover:underline"
-              rel="noreferrer"
-            >
-              Supabase
-            </a>
-          </p>
-          <ThemeSwitcher />
-        </footer>
+    <main className="min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"LocalBusiness\",\"name\":\"Tattoos by Jake Llewellyn\",\"description\":\"At Tattoos by jakellewellyn, I offer a range of services to cater to your individual tattoo needs. I specialise in custom designs, client-specified artwork, and cover-ups (depending on the existing design). All tattoo styles are welcome, ensuring your body art is exactly as you envision it.\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"6A Gwerthonor Place Gilfach Bargoed CF81 8JQ\"},\"url\":\"https://tattoos-by-jake-llewellyn-11261f.duckbyte.co\"}" }} />
+      <Navbar />
+      <div id="hero-section" className="scroll-mt-20">
+        <Suspense fallback={<div className="min-h-[30vh]" />}>
+          <HeroSection />
+        </Suspense>
       </div>
+      <div id="philosophy-section" className="scroll-mt-20">
+        <Suspense fallback={<div className="min-h-[30vh]" />}>
+          <PhilosophySection />
+        </Suspense>
+      </div>
+      <div id="artist-showcase" className="scroll-mt-20">
+        <Suspense fallback={<div className="min-h-[30vh]" />}>
+          <ArtistShowcase />
+        </Suspense>
+      </div>
+      <div id="portfolio-gallery" className="scroll-mt-20">
+        <Suspense fallback={<div className="min-h-[30vh]" />}>
+          <PortfolioGallery />
+        </Suspense>
+      </div>
+      <div id="studio-policies" className="scroll-mt-20">
+        <Suspense fallback={<div className="min-h-[30vh]" />}>
+          <StudioPolicies />
+        </Suspense>
+      </div>
+      <div id="booking-enquiry-form" className="scroll-mt-20">
+        <Suspense fallback={<div className="min-h-[30vh]" />}>
+          <BookingEnquiryForm />
+        </Suspense>
+      </div>
+      <div id="aftercare-guide" className="scroll-mt-20">
+        <Suspense fallback={<div className="min-h-[30vh]" />}>
+          <AftercareGuide />
+        </Suspense>
+      </div>
+      <div id="contact-and-faq" className="scroll-mt-20">
+        <Suspense fallback={<div className="min-h-[30vh]" />}>
+          <ContactAndFaq />
+        </Suspense>
+      </div>
+      <Footer />
     </main>
   );
 }
