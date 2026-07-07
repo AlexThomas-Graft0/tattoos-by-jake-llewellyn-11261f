@@ -9,10 +9,7 @@ import {
   Clock, 
   ChevronDown, 
   ExternalLink, 
-  Facebook, 
-  Instagram, 
-  ShieldCheck, 
-  Calendar 
+  ShieldCheck 
 } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 
@@ -87,6 +84,40 @@ const itemVariants: Variants = {
     transition: { type: 'spring', stiffness: 100, damping: 15 }
   }
 };
+
+const FacebookIcon = (props: React.ComponentProps<'svg'>) => (
+  <svg
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    stroke="currentColor"
+    strokeWidth="2"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
+const InstagramIcon = (props: React.ComponentProps<'svg'>) => (
+  <svg
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    stroke="currentColor"
+    strokeWidth="2"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
 
 export function ContactAndFaq() {
   const [faqs, setFaqs] = useState<FAQ[]>(DEFAULT_FAQS);
@@ -301,7 +332,7 @@ export function ContactAndFaq() {
                     rel="noopener noreferrer" 
                     className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-neutral-900 hover:bg-[#D4AF37] hover:text-black transition-all text-neutral-300 font-medium text-xs uppercase tracking-wider"
                   >
-                    <Facebook className="w-4 h-4" />
+                    <FacebookIcon className="w-4 h-4" />
                     Facebook
                   </a>
                   <a 
@@ -310,7 +341,7 @@ export function ContactAndFaq() {
                     rel="noopener noreferrer" 
                     className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-neutral-900 hover:bg-[#D4AF37] hover:text-black transition-all text-neutral-300 font-medium text-xs uppercase tracking-wider"
                   >
-                    <Instagram className="w-4 h-4" />
+                    <InstagramIcon className="w-4 h-4" />
                     Instagram
                   </a>
                 </div>
